@@ -11,4 +11,6 @@ jobs:
   plan:
   - get: my-git-repo
   - task: task_print-hello-world
-    file: my-git-repo/ci/task-hello-world.yml
+    run:
+      path: ./my-git-repo/ci/runme.sh
+      
