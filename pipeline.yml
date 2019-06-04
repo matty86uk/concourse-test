@@ -2,7 +2,7 @@ resources:
 - name: my-git-repo
   type: git
   source:
-    uri: https://github.com/ruanbekker/concourse-test
+    uri: https://github.com/matty86uk/concourse-test
     branch: master
 
 jobs:
@@ -14,9 +14,9 @@ jobs:
     config:
       platform: linux
       image_resource:
+        type: docker-image
         source:
-          repository: alpine
-          tag: edge
+          repository: busybox
       run:
         path: ./my-git-repo/ci/runme.sh
       
