@@ -11,6 +11,12 @@ jobs:
   plan:
   - get: my-git-repo
   - task: task_print-hello-world
-    run:
-      path: ./my-git-repo/ci/runme.sh
+    config:
+      platform: linux
+      image_resource:
+        source:
+          repository: alpine
+          tag: edge
+      run:
+        path: ./my-git-repo/ci/runme.sh
       
