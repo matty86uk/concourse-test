@@ -5,10 +5,10 @@ resources:
     uri: https://github.com/matty86uk/concourse-test
     branch: master
 
-- name: alpine
+- name: base
   type: docker-image
   source:
-    repository: alpine
+    repository: busybox
     tag: latest
    
 
@@ -16,12 +16,12 @@ jobs:
 - name: hello-world-job
   public: true
   plan:
-  - get: my-git-repo
-  - get: alpine
-  - task: print-hello
-    image: alpine
-    config:
-      platform: linux      
-      run:
-        path: ci/runme.sh
-      
+      - get: my-git-repo
+      - get: base
+      - task: print-hello
+        image: base
+        config:
+          platform: linux      
+          run:
+            path: runme.sh
+          
