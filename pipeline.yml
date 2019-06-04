@@ -23,5 +23,5 @@ jobs:
     config:
       platform: linux      
       run:
-        path: my-git-repo/ci/runme.sh
+        path: ci/runme.sh
       
